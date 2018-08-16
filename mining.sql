@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2018 at 08:34 PM
+-- Generation Time: Aug 16, 2018 at 10:24 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -35,47 +35,27 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`id`, `kd_produk`, `nama_produk`, `harga`, `stock`) VALUES
-(1, 'A100', 'Kaos', '20000', 12),
-(2, 'B100', 'Kemeja', '25000', 24),
-(3, 'C211', 'Teman', '28000', 22),
-(8, 'C210', 'Tas ', '40000', 18),
-(10, 'CD002', 'Yes', '89000', 12),
-(11, 'BRG12', 'Jeans', '25000', 12);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
-  `id_transaksi` int(11) NOT NULL,
+  `id_transaksi` varchar(20) NOT NULL,
   `kd_user` varchar(20) NOT NULL,
   `tanggal_transaksi` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `transaksi_detail`
---
+-- Table structure for table `transaksi_detail` --
 
 CREATE TABLE `transaksi_detail` (
   `no` int(11) NOT NULL,
   `no_transaksi` varchar(20) NOT NULL,
   `kd_produk` varchar(20) NOT NULL,
+  `harga` int(10) NOT NULL,
   `jumlah` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `user`
---
+-- Table structure for table `user`--
 
 CREATE TABLE `user` (
   `id` int(3) NOT NULL,
@@ -86,17 +66,10 @@ CREATE TABLE `user` (
   `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user`
---
+-- Dumping data for table `user`--
 
 INSERT INTO `user` (`id`, `username`, `nama_user`, `password`, `role`, `status`) VALUES
-(1, 'admin', 'Ghifari', '81dc9bdb52d04dc20036dbd8313ed055', 'Admin', 'Active'),
-(4, 'KSR01', 'Ghifari Pratama', '81dc9bdb52d04dc20036dbd8313ed055', 'Kasir', 'Active');
-
---
--- Indexes for dumped tables
---
+(1, 'admin', 'Ghifari Pratama', '81dc9bdb52d04dc20036dbd8313ed055', 'Admin', 'Active'),
 
 --
 -- Indexes for table `product`
@@ -130,17 +103,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

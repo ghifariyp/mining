@@ -68,6 +68,7 @@
 <!-- /.row -->
 </div>
 
+<!--END-->
 <?php 
 }else{ 
     echo '<script>alert("Anda harus login terlebih dahulu !");</script>';
